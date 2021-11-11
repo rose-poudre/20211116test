@@ -1,0 +1,45 @@
+/* ContentsArea
+-------------------------- */
+.wrapper {
+  width: 375px;
+  margin: 0 auto;
+  padding-right: 16px;
+  padding-left: 16px;
+  background-color: #fff;
+  color: #fff;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 19px;
+  font-weight: 400;
+}
+
+p {
+  font-size: 16px;
+}
+
+a {
+  color: #0066cc;
+}
+
+.top-wrapper {
+  height: 56px;
+}
+
+.main-wrapper {
+  padding: 42px auto;
+}
+
+.footer {
+  height: 56px;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0;
+}
