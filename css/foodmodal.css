@@ -1,6 +1,6 @@
 /* ContentsArea
 -------------------------- */
-#contents {
+#container {
   margin: 0 auto;
   padding: 10px 0 50px 0;
   width: 100%;
@@ -33,7 +33,7 @@ p {
   z-index: 5;
 }
 
-.modal_window {
+#modal_window {
   top: 50%;
   left: 50%;
   margin: -150px 0 0 -200px;
@@ -46,7 +46,7 @@ p {
   z-index: 10;
 }
 
-.modal_window h2 {
+#modal_window h2 {
   margin-bottom: 20px;
   width: 400px;
   height: 30px;
@@ -59,7 +59,7 @@ p {
   background: #000;
 }
 
-.modal_window p {
+#modal_window p {
   padding: 0 15px 15px 15px;
   font-size: 12px;
   line-height: 160%;
