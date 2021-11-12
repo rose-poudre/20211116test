@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>foodinput</title>
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="./css/main.css" />
     <link rel="stylesheet" href="./css/foodinput.css" />
   </head>
   <body>
@@ -20,14 +20,29 @@
           <button>完了</button>
         </div>
 
-        <div class="food-list">
+        <div class="food-list" id="food-list">
           <input type="text" id="food" />
+          <a href="#open01"><button>詳細</button></a>
           <button>削除</button>
         </div>
       </div>
 
       <div class="footer"></div>
     </div>
+
+    <!-- modal -->
+    <div id="modal">
+      <div id="open01">
+        <a class="close_overlay"></a>
+        <div id="modal_window">
+          <a href="#" id="close">【×】</a>
+          <img src="" alt="" />
+        </div>
+        <!--/.modal_window-->
+      </div>
+      <!--/#open01-->
+    </div>
+    <!--/.modal-->
     <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- foodinput -->
