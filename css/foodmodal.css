@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 /* ContentsArea
 -------------------------- */
 #container {
@@ -36,9 +38,9 @@ p {
 #modal_window {
   top: 50%;
   left: 50%;
-  margin: -150px 0 0 -200px;
-  width: 400px;
-  height: 300px;
+  margin: -230px 0 0 -150px;
+  width: 300px;
+  height: 450px;
   text-align: center;
   display: block;
   background: #fff;
@@ -48,13 +50,14 @@ p {
 
 #modal_window h2 {
   margin-bottom: 20px;
-  width: 400px;
+  margin-left: 0;
+  width: 300px;
   height: 30px;
   line-height: 30px;
   color: #fff;
   font-size: 12px;
   font-weight: bold;
-  text-align: left;
+  text-align: center;
   text-indent: 15px;
   background: #000;
 }
@@ -84,4 +87,33 @@ div#modal div:target {
   -webkit-animation-iteration-count: 1;
   opacity: 1;
   display: block;
+}
+
+.btn-column {
+  display: flex;
+  flex-flow: column;
+}
+
+.close-btn {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  color: #000;
+}
+
+.btn-secondary img {
+  margin-right: 20px;
+}
+
+.batsu-btn {
+  display: block;
+  background-color: #565656;
+  border-radius: 50%;
+  color: #fff;
+  width: 24px;
+  height: 24px;
+  text-decoration: none;
 }

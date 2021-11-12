@@ -1,5 +1,82 @@
+@charset "utf-8";
+
 /* ContentsArea
 -------------------------- */
 body {
   background-color: #efefef;
+}
+
+p {
+  margin-bottom: 0;
+}
+
+.target-days {
+  font-size: 32px;
+}
+
+.btn img {
+  width: 60px;
+  height: auto;
+}
+
+.btn-secondary {
+  color: #fff;
+  background-color: rgb(254, 254, 254, 0);
+  border-color: rgb(254, 254, 254, 0);
+}
+
+.link-btn {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/*=========グラフ表示のためのCSS ===============*/
+
+.chart-area {
+  /*円グラフがスマホでつぶれないようにする*/
+  position: relative;
+  width: 100%;
+  height: 38vh;
+  margin-bottom: 32px;
+}
+
+/*========= レイアウトのためのCSS ===============*/
+
+.lead {
+  padding: 20px;
+  text-align: center;
+}
+
+.more {
+  margin-top: 12px;
+  text-align: center;
+}
+
+.more img {
+  width: 20px;
+  height: auto;
+}
+
+.more-title {
+  margin-top: 20px;
+  margin-bottom: 12px;
+  padding-left: 8px;
+  font-size: 24px;
+  font-weight: 800px;
+  border-bottom: 1px solid #222;
+  text-align: left;
+  background-color: #4169e1;
+  color: #fff;
+}
+
+.more-text {
+  margin-bottom: 60px;
+  font-size: 14px;
+  line-height: 2;
+}
+
+.memo-text {
+  margin-bottom: 60px;
+  font-size: 14px;
 }

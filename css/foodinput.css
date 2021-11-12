@@ -1,20 +1,124 @@
-.main-wrapper {
+/* .main-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
+*/
 
-.btn{
+body {
+  height: 667px;
+}
+
+p {
+  margin-bottom: 0;
+}
+
+.top-wrapper p {
+  line-height: 3.5;
+}
+
+.add-food {
+  font-weight: 600;
+  padding-left: 0;
+}
+
+.food-detail {
+  font-size: 10px;
+  color: #000080;
+  padding-left: 0;
+}
+
+.add-btn {
+  padding: 0;
+  margin-right: -12px;
+}
+
+.btn img {
+  width: 60px;
+  height: auto;
+}
+
+.btn-secondary {
+  color: #fff;
+  background-color: rgb(254, 254, 254, 0);
+  border-color: rgb(254, 254, 254, 0);
+}
+
+.food-input-btn {
+  margin-bottom: 20px;
+}
+
+.link-btn {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
-.food-list {
+.complere-btn {
+  background-color: #000080;
+  color: #fff;
+  border: none;
+  font-size: 24px;
+  letter-spacing: 4px;
+  width: 140px;
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 32px auto;
+  border-radius: 5px;
+  box-shadow: 4px 4px 4px #b2b2ff;
+  text-decoration: none;
 }
 
+.food-list {
+  background-color: #e5e5ff;
+  padding-top: 12px;
+  position: relative;
+  margin-top: 70px;
+}
 
+.food-list:before {
+  font-size: 16px !important;
+  font-size: 1.5rem;
+  position: absolute;
+  padding-top: 4px !important;
+  top: -30px;
+  left: -3px;
+  height: 30px;
+  padding: 0 1em;
+  content: "食べたもの一覧";
+  color: #fff;
+  background: #565656;
+}
+
+.food-list ul {
+  list-style-type: none;
+  padding-left: 16px;
+}
+
+.food-list ul li {
+  line-height: 3;
+}
+
+.del {
+  line-height: 1.2;
+}
+
+/* 検索枠 */
+.form-control {
+  margin: 10px 16px;
+  width: 340px;
+  background-color: #e5e5ff;
+}
+
+.form-group {
+  display: flex;
+  margin: 12px auto;
+}
+
+.fa-search {
+  margin-left: -50px;
+  margin-top: 20px;
+}

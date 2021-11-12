@@ -17,9 +17,9 @@
 <div class="wrapper">
 
   <div class="top-wrapper">
-    <div class="container">
+    <div class="container text-center">
   <p>
-    今日（●日）※JSから取得
+    今日（●日）
   </p>
 
     </div>
@@ -29,15 +29,25 @@
 
 <div class="main-wrapper">
 
-  <div class="container">
-    <p>30日間健康管理チャレンジ</p>
-    <h1>あと●日※JSから取得</h1>
+  <div class="container text-center">
+    <p>30日間健康管理チャレンジ<br>
+   あと<span class="target-days">●</span>日</p>
+    <h1>目標●kg</h1>
+    <h2>（のこり●kg）</h2>
+
+    <div class="chart-area">
+    <canvas id="chart02"></canvas>
+    </div>
+    <!--/box--></div>
+      
+  
+
   </div><!--/.container-->
 
-    <div class="container">
-      <p><a href="#open01"><button type="button" class="btn btn-secondary">食事</button></a></p>
-      <p><a href="#"><button type="button" class="btn btn-secondary">運動</button></a></p>
-      <p><a href="#"><button type="button" class="btn btn-secondary">体重</button></a></p>
+    <div class="container link-btn">
+      <a href="#open01"><button type="button" class="btn btn-secondary"><img src="img/food-btn.png" alt="食事"></button></a>
+      <a href="#"><button type="button" class="btn btn-secondary"><img src="img/exercise-btn.png" alt="運動"></button></a>
+      <a href="#"><button type="button" class="btn btn-secondary"><img src="img/weight-btn.png" alt="体重"></button></a>
 
       <div id="modal">
         <div id="open01">
@@ -45,34 +55,86 @@
           <div id="modal_window">
             <h2>入力する内容を選んでね！</h2>
             
-              <a href="https://www.google.com/"><button type="button" class="btn btn-secondary">Google</button></a>
-              <a href="https://www.yahoo.co.jp/" target="_blank" rel="noopener"
-                ><button type="button" class="btn btn-secondary">Yahoo!</button></a>
-              <a href="https://www.bing.com/"><button type="button" class="btn btn-secondary">Bing</button></a>
-              <a href="https://www.apple.com/jp/"><button type="button" class="btn btn-secondary">Apple</button></a>
-              <a href="https://www.balmuda.com/jp/"><button type="button" class="btn btn-secondary">BALMUDA</button></a>
-            </p>
-            
-            <a href="#">【×】CLOSE</a>
+            <div class=" btn-column">
+              <a href="https://www.google.com/"><button type="button" class="btn btn-secondary"><img src="img/breakfast.png" alt="朝食">朝食</button></a>
+              <a href="https://www.google.com/"><button type="button" class="btn btn-secondary"><img src="img/lunch.png" alt="昼食">昼食</button></a>
+              <a href="https://www.google.com/"><button type="button" class="btn btn-secondary"><img src="img/dinner.png" alt="夕食">夕食</button></a>
+              <a href="https://www.google.com/"><button type="button" class="btn btn-secondary"><img src="img/snack.png" alt="間食">間食</button></a>
+            </div>
+            <div class="close-btn">
+              <a href="#" class="batsu-btn">✗</a>
+            </div>
           </div>
           <!--/.modal_window-->
         </div>
         <!--/#open01-->
       </div>
       <!--/.modal-->
+
     </div>
     <!--/.container-->
 
+
+<div class="more">
+<img src="img/arrow.png" alt="下向き矢印">MORE
+</div>
+
+<div class="more-title">
+  1日の摂取カロリー　　●kcal
+</div>
+<div class="more-text">
+      　ここに食品名が入ります　　　　　　　　●kcal<br>
+      　ここに食品名が入ります　　　　　　　　●kcal<br>
+      　ここに食品名が入ります　　　　　　　　●kcal<br>
+      　ここに食品名が入ります　　　　　　　　●kcal<br>
+      　ここに食品名が入ります　　　　　　　　●kcal<br>
+      　ここに食品名が入ります　　　　　　　　●kcal<br>
+      　ここに食品名が入ります　　　　　　　　●kcal<br>
+      　ここに食品名が入ります　　　　　　　　●kcal<br>
+      　ここに食品名が入ります　　　　　　　　●kcal<br>
+      　ここに食品名が入ります　　　　　　　　●kcal<br>
+      　ここに食品名が入ります　　　　　　　　●kcal<br>
+      　ここに食品名が入ります　　　　　　　　●kcal<br>
+      　ここに食品名が入ります　　　　　　　　●kcal<br>
+      </div>
+      <div class="more-title">
+        1日の消費カロリー　　●kcal
+      </div>
+      <div class="more-text">
+        　ここに食品名が入ります　　　　　　　　●kcal<br>
+        　ここに食品名が入ります　　　　　　　　●kcal<br>
+        　ここに食品名が入ります　　　　　　　　●kcal<br>
+        　ここに食品名が入ります　　　　　　　　●kcal<br>
+        　ここに食品名が入ります　　　　　　　　●kcal<br>
+        　ここに食品名が入ります　　　　　　　　●kcal<br>
+    </div>
+      <div class="more-title">
+        メモ
+      </div>
+      <div class="more-text memo-text">
+      <!--<textarea rows="10" cols="60">ここに記入できます</textarea>-->
+      　ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
+      </div>
+   
   </div>
   <!--/.main-wrapper-->
 
-  <div class="footer">
-
+  <div class="footer fixed-bottom link-btn">
+    <a href="#"><button type="button" class="btn btn-secondary color-navy"><img src="img/home-icon.png" alt=""></button></a>
+    <a href="#"><button type="button" class="btn btn-secondary color-navy"><img src="img/graph-icon.png" alt=""></button></a>
+    <a href="#"><button type="button" class="btn btn-secondary color-navy"><img src="img/calender-icon.png" alt=""></button></a>
+    <a href="#"><button type="button" class="btn btn-secondary color-navy"><img src="img/mypage-icon.png" alt=""></button></a>
   </div>
   <!--/.footer-->
 
   </div>
   <!--/.wrapper-->
+
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/protonet-jquery.inview/1.1.2/jquery.inview.min.js"></script>
+  <script src="js/toppage.js"></script>
 
   </body>
 </html>

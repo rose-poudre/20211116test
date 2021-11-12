@@ -4,33 +4,179 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>foodinput</title>
-    <link rel="stylesheet" href="">
-    <link rel="stylesheet" href="./css/foodinput.css" />
+
+    <title>食事入力ページ</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" href="css/foodinput.css" />
   </head>
   <body>
     <div class="wrapper">
-      <div class="top-wrapper"></div>
+      <div class="top-wrapper">
+        <div class="container text-center">
+          <p>
+            今日（●日）朝食
+          </p>
+    
+        </div>
+        <!--/.container-->
+      </div>
+      <!--/.top-wrapper-->
+    
+
+
+      </div>
 
       <div class="main-wrapper">
-        <select name="" id="select"></select>
+        <!-- <select name="" id="select"></select>
+ -->
 
-        <div class="btn">
-          <button>追加</button>
-          <button>完了</button>
+
+
+        <div class="col-xs-12 form-group">
+          <form method="get" action="index.html" class="search-form">
+            <div class="form-group has-feedback">
+              <input type="text" name="s" id="s" placeholder="Search for..." class="form-control">
+              <i class="fas fa-search"></i>
+            </div>
+          </form>
         </div>
 
+
+        <div class="container link-btn food-input-btn">
+          <div class="row">
+            <div class="col-1"></div>
+             <div class="col-8">
+               <div class="row">
+                  <p class="add-food">
+                    ここに食品名が入ります。
+                    </p>
+                    <p class="food-detail">
+                      ここにカロリーや栄養素が入ります。ここにカロリーや栄養素が入ります。
+                    </p>
+               </div>
+            </div>
+        <div class="col-2">
+          <a href="#"><button type="button" class="btn add-btn">
+              <img src="img/add-btn.png" alt="追加" /></button></a>
+            </div>
+            <div class="col-1"></div>
+        </div>
+        </div>
+
+        <!-- <div class="container link-btn food-input-btn">
+          <a href="#"
+            ><button type="button" class="btn btn-secondary">
+              <img src="img/add-btn.png" alt="追加" /></button
+          ></a>
+          <a href="index.html"
+            ><button type="button" class="btn btn-secondary">
+              <img src="img/completion-btn.png" alt="完了" /></button
+          ></a>
+        </div>
+         -->
+
+         <hr>
+
+         <div><a href="index.html"
+          ><button class="complere-btn">入力完了</button></a></div>
+         
         <div class="food-list">
-          <input type="text" id="food" />
-          <button>削除</button>
+          <ul>
+            <li>
+              ここに食品名が入ります　　　　　　　<button class="del">削除</button>
+            </li>
+            <li>
+              ここに食品名が入ります　　　　　　　<button class="del">削除</button>
+            </li>
+            <li>
+              ここに食品名が入ります　　　　　　　<button class="del">削除</button>
+            </li>
+            <li>
+              ここに食品名が入ります　　　　　　　<button class="del">削除</button>
+            </li>
+            <li>
+              ここに食品名が入ります　　　　　　　<button class="del">削除</button>
+            </li>
+            <li>
+              ここに食品名が入ります　　　　　　　<button class="del">削除</button>
+            </li>
+            <li>
+              ここに食品名が入ります　　　　　　　<button class="del">削除</button>
+            </li>
+            <li>
+              ここに食品名が入ります　　　　　　　<button class="del">削除</button>
+            </li>
+            <li>
+              ここに食品名が入ります　　　　　　　<button class="del">削除</button>
+            </li>
+            <li>
+              ここに食品名が入ります　　　　　　　<button class="del">削除</button>
+            </li>
+            <li>
+              ここに食品名が入ります　　　　　　　<button class="del">削除</button>
+            </li>
+            <li>
+              ここに食品名が入ります　　　　　　　<button class="del">削除</button>
+            </li>
+            <li>
+              ここに食品名が入ります　　　　　　　<button class="del">削除</button>
+            </li>
+            <li>
+              ここに食品名が入ります　　　　　　　<button class="del">削除</button>
+            </li>
+            <li>
+              ここに食品名が入ります　　　　　　　<button class="del">削除</button>
+            </li>
+            <li>
+              ここに食品名が入ります　　　　　　　<button class="del">削除</button>
+            </li>
+            <li>
+              ここに食品名が入ります　　　　　　　<button class="del">削除</button>
+            </li>
+            <li>
+              ここに食品名が入ります　　　　　　　<button class="del">削除</button>
+            </li>
+          </ul>
         </div>
       </div>
 
-      <div class="footer"></div>
+
+      <div class="footer fixed-bottom link-btn">
+        <a href="#"
+          ><button type="button" class="btn btn-secondary color-navy">
+            <img src="img/home-icon.png" alt="" /></button
+        ></a>
+        <a href="#"
+          ><button type="button" class="btn btn-secondary color-navy">
+            <img src="img/graph-icon.png" alt="" /></button
+        ></a>
+        <a href="#"
+          ><button type="button" class="btn btn-secondary color-navy">
+            <img src="img/calender-icon.png" alt="" /></button
+        ></a>
+        <a href="#"
+          ><button type="button" class="btn btn-secondary color-navy">
+            <img src="img/mypage-icon.png" alt="" /></button
+        ></a>
+      </div>
+      <!--/.footer-->
     </div>
+    <!--/.wrapper-->
+
     <!-- jquery -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- foodinput -->
-    <script src="./js/foodinput.js"></script>
+    <script src="js/foodinput.js"></script>
   </body>
 </html>
