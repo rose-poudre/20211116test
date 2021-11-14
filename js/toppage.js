@@ -16,6 +16,9 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
+var sum_kcal = 0;
+// しきい値
+var threshold_kcal = 2000;
 
 $(window).on("load", function () {
   const url = new URL(window.location.href);
@@ -26,9 +29,7 @@ $(window).on("load", function () {
   let today = _view_date ? new Date(_view_date) : new Date();
   let day = `${today.getFullYear()}/${today.getMonth() + 1}/${today.getDate()}`;
   $(".day").text(
-    `今日(${today.getFullYear()}年${
-      today.getMonth() + 1
-    }月${today.getDate()}日)`
+    `${today.getFullYear()}年${today.getMonth() + 1}月${today.getDate()}日`
   );
   $("#js-prev_date").attr(
     "href",
@@ -67,66 +68,161 @@ $(window).on("load", function () {
   // TODO: 本日の食事情報をこっちに移動(余裕あったらでおｋ)
   let meals = get_meal(day);
   console.log(meals);
+
   meals.then(function (result) {
+    sum_kcal = 0;
     console.log(result[0]);
     $.each(result[0].breakfast, function (i, val) {
       $(".inoculation")
-        .find(".breadfast")
+        .find(".breakfast")
         .find("ul")
         .append(
-          `<li><span>${val.name}</span><span>${val.amount}</span><span>${val.kcal}</span></li>`
+          `<div class="in_cal"><div class="left"><li class="ate-list"><span>${
+            val.name
+          }</span>${" "}<span>${
+            val.amount
+          }</span></div><div class="right"><span>${
+            val.kcal
+          }${"kcal"}</span></div></div></li>`
         );
+
+      sum_kcal += val.kcal;
     });
+    $.each(result[0].lunch, function (i, val) {
+      $(".inoculation")
+        .find(".lunch")
+        .find("ul")
+        .append(
+          `<div class="in_cal"><div class="left"><li class="ate-list"><span>${
+            val.name
+          }</span>${" "}<span>${
+            val.amount
+          }</span></div><div class="right"><span>${
+            val.kcal
+          }${"kcal"}</span></div></div></li>`
+        );
+      // 朝食とかの食べたもののcalを計算するからこの辺でsum_kcalに加算してく感じかな
+      // +=で加算代入できるよん
+      // https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Addition_assignment
+
+      sum_kcal += val.kcal;
+    });
+    $.each(result[0].dinner, function (i, val) {
+      $(".inoculation")
+        .find(".dinner")
+        .find("ul")
+        .append(
+          `<div class="in_cal"><div class="left"><li class="ate-list"><span>${
+            val.name
+          }</span>${" "}<span>${
+            val.amount
+          }</span></div><div class="right"><span>${
+            val.kcal
+          }${"kcal"}</span></div></div></li>`
+        );
+      // 朝食とかの食べたもののcalを計算するからこの辺でsum_kcalに加算してく感じかな
+      // +=で加算代入できるよん
+      // https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Operators/Addition_assignment
+
+      sum_kcal += val.kcal;
+    });
+    $.each(result[0].snack, function (i, val) {
+      $(".inoculation")
+        .find(".snack")
+        .find("ul")
+        .append(
+          `<div class="in_cal"><div class="left"><li class="ate-list"><span>${
+            val.name
+          }</span>${" "}<span>${
+            val.amount
+          }</span></div><div class="right"><span>${
+            val.kcal
+          }${"kcal"}</span></div></div></li>`
+        );
+      // 朝食とかの食べたもののcalを計算するからこの辺でsum_kcalに加算してく感じかな
+      // +=で加算代入できるよん
+
+      sum_kcal += val.kcal;
+    });
+
+    $(".sum_kcal").text(sum_kcal);
+    draw_chart();
   });
+  // ここに計算を書く感じで良いのかな？
 });
 
-//=========== 円グラフ（ドーナッツ型） ============//
-$("#chart02").on("inview", function (event, isInView) {
-  //画面上に入ったらグラフを描画
-  if (isInView) {
-    let ctx = document.getElementById("chart02"); //グラフを描画したい場所のid
-    let chart = new Chart(ctx, {
-      type: "doughnut", //グラフのタイプ
-      data: {
-        //グラフのデータ
-        datasets: [
-          {
-            backgroundColor: ["#000088", "#aaa"], //グラフの背景色
-            data: ["0", "100"], //データ
-          },
-        ],
-      },
+function draw_chart() {
+  console.log(sum_kcal);
+  let ctx = document.getElementById("chart02"); //グラフを描画したい場所のid
+  let par_kcal = Math.floor((sum_kcal / threshold_kcal) * 100);
+  let chart = new Chart(ctx, {
+    type: "doughnut", //グラフのタイプ
+    data: {
+      //グラフのデータ
+      datasets: [
+        {
+          backgroundColor: ["#000088", "#aaa"], //グラフの背景色
+          data: [par_kcal, 100 - par_kcal <= 0 ? 0 : 100 - par_kcal], //データ
+        },
+      ],
+    },
 
-      options: {
-        //グラフのオプション
-        maintainAspectRatio: false, //CSSで大きさを調整するため、自動縮小をさせない
-        cutoutPercentage: 70, //中央からの空円の太さ。グラフの太さ変更
-        legend: {
-          display: true, //グラフの説明を表示
-        },
-        tooltips: {
-          //グラフへカーソルを合わせた際の詳細表示の設定
-          callbacks: {
-            label: function (tooltipItem, data) {
-              return (
-                data.labels[tooltipItem.index] +
-                ": " +
-                data.datasets[0].data[tooltipItem.index] +
-                "%"
-              ); //%を最後につける
-            },
+    options: {
+      //グラフのオプション
+      maintainAspectRatio: false, //CSSで大きさを調整するため、自動縮小をさせない
+      cutoutPercentage: 70, //中央からの空円の太さ。グラフの太さ変更
+      text: "テキスト",
+      legend: {
+        display: true, //グラフの説明を表示
+      },
+      tooltips: {
+        //グラフへカーソルを合わせた際の詳細表示の設定
+        callbacks: {
+          label: function (tooltipItem, data) {
+            return (
+              data.labels[tooltipItem.index] +
+              ": " +
+              data.datasets[0].data[tooltipItem.index] +
+              "%"
+            ); //%を最後につける
           },
         },
-        title: {
-          //上部タイトル表示の設定
-          display: true,
-          fontSize: 16,
-          text: "のこり摂取カロリー",
-        },
       },
-    });
-  }
-});
+    },
+  });
+}
+
+var chartJsPluginCenterLabel = {
+  labelShown: false,
+
+  afterRender: function (chart) {
+    // afterRender は何度も実行されるので、２回目以降は処理しない
+    if (this.labelShown) {
+      return;
+    }
+    this.labelShown = true;
+    // ラベルの HTML
+    var value = chart.data.datasets[0].data[0];
+    var labelBox = document.createElement("div");
+    let difference = threshold_kcal - sum_kcal;
+    labelBox.classList.add("label-box");
+    labelBox.innerHTML =
+      '<div class="label">' +
+      '<div class="title">のこり<br>摂取カロリー</div>' +
+      '<div class="value">' +
+      `${difference}kcal<span class="over">${
+        difference < 0 ? "オーバー" : ""
+      }</span>` +
+      "</div>" +
+      "</div>";
+    // ラベル描画
+    var canvas = chart.ctx.canvas;
+    canvas.parentNode.insertBefore(labelBox, canvas.nextElementSibling);
+  },
+};
+
+// 上記プラグインの有効化
+Chart.plugins.register(chartJsPluginCenterLabel);
 
 async function get_meal(date) {
   let snapShot = await db
@@ -179,3 +275,5 @@ Chart.plugins.register({
     });
   },
 });
+
+///////////////////////////////////////////////////////////////////////////////

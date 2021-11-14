@@ -22,10 +22,18 @@
   <body>
     <div class="wrapper">
       <div class="top-wrapper">
-        <div class="container text-center" style="display: flex">
-          <div><a id="js-prev_date">＜</a></div>
+        <div class="container text-center date">
+          <div>
+            <a id="js-prev_date"
+              ><img src="img/left-arrow.png" class="arrow-img"
+            /></a>
+          </div>
           <div><p class="day"></p></div>
-          <div><a id="js-next_date">＞</a></div>
+          <div>
+            <a id="js-next_date"
+              ><img src="img/right-arrow.png" class="arrow-img"
+            /></a>
+          </div>
         </div>
         <!--/.container-->
       </div>
@@ -39,29 +47,28 @@
           </p>
           <h1>目標<apan class="targetweight"></apan>kg</h1>
           <h2>（のこり●kg）</h2>
-
+          <!-- 円グラフ -->
           <div class="chart-area">
             <canvas id="chart02"></canvas>
           </div>
           <!--/box-->
         </div>
-      </div>
-      <!--/.container-->
+        <!--/.container-->
 
-      <div class="container link-btn">
-        <a href="#open01"
-          ><button type="button" class="btn btn-secondary">
-            <img src="img/food-btn.png" alt="食事" /></button
-        ></a>
-        <a href="#"
-          ><button type="button" class="btn btn-secondary">
-            <img src="img/exercise-btn.png" alt="運動" /></button
-        ></a>
-        <a href="#"
-          ><button type="button" class="btn btn-secondary">
-            <img src="img/weight-btn.png" alt="体重" /></button
-        ></a>
-
+        <div class="container link-btn circle-btn">
+          <a href="#open01"
+            ><button type="button" class="btn btn-secondary">
+              <img src="img/food-btn.png" alt="食事" /></button
+          ></a>
+          <a href="#"
+            ><button type="button" class="btn btn-secondary">
+              <img src="img/exercise-btn.png" alt="運動" /></button
+          ></a>
+          <a href="#"
+            ><button type="button" class="btn btn-secondary">
+              <img src="img/weight-btn.png" alt="体重" /></button
+          ></a>
+        </div>
         <div id="modal">
           <div id="open01">
             <a href="https://www.google.com/" class="close_overlay">×</a>
@@ -104,33 +111,55 @@
 
       <div class="more"><img src="img/arrow.png" alt="下向き矢印" />MORE</div>
       <div class="inoculation">
-        <div class="more-title">1日の摂取カロリー　　●kcal</div>
+        <div class="more-title">
+          1日の摂取カロリー　　<span class="sum_kcal"></span>kcal
+        </div>
         <div class="more-text">
-          <div class="breadfast">
-            <div>朝食</div>
+          <div class="breakfast">
+            <div class="all_foods_title">【朝食】</div>
             <ul></ul>
           </div>
         </div>
-
         <div class="more-text">
-          　
-          <ul class="hotel_list"></ul>
+          <div class="lunch">
+            <div class="all_foods_title">【昼食】</div>
+            <ul></ul>
+          </div>
         </div>
-        <div class="more-title">1日の消費カロリー　　●kcal</div>
         <div class="more-text">
-          　ここに食品名が入ります　　　　　　　　●kcal<br />
-          　ここに食品名が入ります　　　　　　　　●kcal<br />
-          　ここに食品名が入ります　　　　　　　　●kcal<br />
-          　ここに食品名が入ります　　　　　　　　●kcal<br />
-          　ここに食品名が入ります　　　　　　　　●kcal<br />
-          　ここに食品名が入ります　　　　　　　　●kcal<br />
+          <div class="dinner">
+            <div class="all_foods_title">【夕食】</div>
+            <ul></ul>
+          </div>
         </div>
-        <div class="more-title">メモ</div>
-        <div class="more-text memo-text">
-          <!--<textarea rows="10" cols="60">ここに記入できます</textarea>-->
-          　ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。
+        <div class="more-text">
+          <div class="snack">
+            <div class="all_foods_title">【間食】</div>
+            <ul></ul>
+          </div>
         </div>
       </div>
+
+      <div class="more-text">
+        　
+        <ul class="hotel_list"></ul>
+      </div>
+      <div class="more-title">1日の消費カロリー　　●kcal</div>
+      <div class="more-text">
+        　ここに食品名が入ります　　　　　　　　●kcal<br />
+        　ここに食品名が入ります　　　　　　　　●kcal<br />
+        　ここに食品名が入ります　　　　　　　　●kcal<br />
+        　ここに食品名が入ります　　　　　　　　●kcal<br />
+        　ここに食品名が入ります　　　　　　　　●kcal<br />
+        　ここに食品名が入ります　　　　　　　　●kcal<br />
+      </div>
+      <div class="more-title">メモ</div>
+      <div class="more-text memo-text">
+        <textarea rows="10" cols="45"></textarea>
+        <!--<textarea rows="10" cols="60">ここに記入できます</textarea>-->
+        <!-- 　ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。ここにテキストが入ります。 -->
+      </div>
+
       <!--/.main-wrapper-->
 
       <div class="footer fixed-bottom link-btn">

@@ -174,7 +174,7 @@ p {
   text-align: left;
 }
 
-/* /* CSS3 ModalWindow SET
+/* CSS3 ModalWindow SET
 -------------------------- */
 @-webkit-keyframes modalFadeIn {
   0% {
@@ -192,4 +192,4 @@ div#modal div:target {
   -webkit-animation-iteration-count: 1;
   opacity: 1;
   display: block;
-} */
+}
