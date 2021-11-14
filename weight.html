@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      button {
+        width: 100px;
+        height: 100px;
+        border-radius: 100px;
+        font-size: 50px;
+        margin-right: 30px;
+        margin-bottom: 30px;
+      }
+      div{
+        text-align: center;
+      }
+      input {
+        width: 250px;
+        height: 200px;
+        text-align: center;
+        font-size: 100px;
+        border: none;
+      }
+      p{
+        font-size: 100px;
+      }
+      .number{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div class="number">
+         <input/><p>kg</p>
+      </div>
+
+      <button onclick="append( '1' )">1</button>
+      <button onclick="append( '2' )">2</button>
+      <button onclick="append( '3' )">3</button><br />
+      <button onclick="append( '4' )">4</button>
+      <button onclick="append( '5' )">5</button>
+      <button onclick="append( '6' )">6</button><br />
+      <button onclick="append( '7' )">7</button>
+      <button onclick="append( '8' )">8</button>
+      <button onclick="append( '9' )">9</button><br />
+      <button onclick="append( '0' )">0</button>
+      <button onclick="append( '.' )">.</button>
+      <button onclick="document.querySelector( 'input' ).value ='' ">C</button><br>
+
+      <button id="ok">OK</button>
+    </div>
+
+    <!-- jquery読み込み -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+      //inputタグを更新する関数
+      function update(number) {
+        document.querySelector("input").value = number;
+      }
+
+      //数字ボタンが押されたので数字を後ろに追加する
+      function append(number) {
+        document.querySelector("input").value += number;
+      }
+
+      //[=]ボタンが押されたら計算
+      function calc() {
+        const v = document.querySelector("input").value;
+        const f = new Function("return" + v);
+        update(f().toString());
+      }
+    </script>
+  </body>
+</html>

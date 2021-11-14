@@ -18,7 +18,7 @@
       ><br /><br />
 
       <!-- 検索したものを表示 -->
-      <div id="search" style="display: none;">
+      <div id="search">
         <label class="">食品名</label>
         <input type="text" id="name_box" style="border: none; width: 100px" />
         <label class="">カロリー</label>
@@ -42,10 +42,15 @@
       <button id="addbtn_1">追加</button>
       <button id="addbtn_2">追加</button>
       <button id="addbtn_3">追加</button>
+      <button id="send">送信</button>
       <hr />
+      <input type="text" id="date">
+      <input type="text" id="name" />
+      <input type="text" id="kcal" />
+      <input type="text" id="amount" />
 
       <!-- 追加ボタン押した内容表示 -->
-      <div id="show1" style="display: none;">
+      <div id="show1" style="display: none">
         <input type="text" id="name1" style="border: none; width: 100px" />
         <!-- <label class="">カロリー</label> -->
         <input
@@ -65,7 +70,7 @@
         />g<br /><br />
       </div>
 
-      <div id="show2" style="display: none;">
+      <div id="show2" style="display: none">
         <input type="text" id="name2" style="border: none; width: 100px" />
         <!-- <label class="">カロリー</label> -->
         <input
@@ -85,7 +90,7 @@
         />g<br /><br />
       </div>
 
-      <div id="show3" style="display: none;">
+      <div id="show3" style="display: none">
         <input type="text" id="name3" style="border: none; width: 100px" />
         <!-- <label class="">カロリー</label> -->
         <input
@@ -109,6 +114,9 @@
       <button id="insbtn">INSERT</button>
       <button id="updbtn">UPDATE</button>
       <button id="delbtn">DELETE</button>
+
+      <button id="food">food</button>
+      <input type="text" id="output" />
     </div>
     <!-- コンテンツ表示内容 -->
 
@@ -162,14 +170,14 @@
       } from "https://www.gstatic.com/firebasejs/9.4.1/firebase-storage.js";
 
       //APIkey 自分のプロダクトを特定するためのコード
-        const firebaseConfig = {
-          apiKey: "AIzaSyCjJjAbvkARxiEdRgxXopqIOmkWOxaFOXs",
-          authDomain: "work-js.firebaseapp.com",
-          projectId: "work-js",
-          storageBucket: "work-js.appspot.com",
-          messagingSenderId: "649608969811",
-          appId: "1:649608969811:web:29e1bb2d8ca0c646d810a6"
-        };
+      const firebaseConfig = {
+        apiKey: "AIzaSyCjJjAbvkARxiEdRgxXopqIOmkWOxaFOXs",
+        authDomain: "work-js.firebaseapp.com",
+        projectId: "work-js",
+        storageBucket: "work-js.appspot.com",
+        messagingSenderId: "649608969811",
+        appId: "1:649608969811:web:29e1bb2d8ca0c646d810a6",
+      };
 
       //Firebaseを利用するための変数
       const app = initializeApp(firebaseConfig);
@@ -179,7 +187,6 @@
       const db = getFirestore(app);
       //storageを利用するための変数
       const storage = getStorage(app);
-
 
       //------------------firestore-------------------------------------------//
 
@@ -195,23 +202,24 @@
       let selbtn = document.getElementById("selbtn");
       let updbtn = document.getElementById("updbtn");
       let delbtn = document.getElementById("delbtn");
+      let food = document.getElementById("food");
 
       //INSERTボタンを押すとイベント発生
       $("#insbtn").on("click", function () {
-        const ob = {
-          //inputタグ,id=search_boxを取得
-          SearchOfFood: $("#search_box").val(),
-          //inputタグ,id=name_boxを取得
-          NameOfFood: $("#name_box").val(),
-          //inputタグ,id=cal_boxを取得
-          Calorie: $("#cal_box").val(),
-          //inputタグ,id=p_boxを取得
-          Protein: $("#p_box").val(),
-          //inputタグ,id=f_boxを取得
-          Fat: $("#f_box").val(),
-          //inputタグ,id=c_boxを取得
-          Carbo: $("#c_box").val(),
-        };
+        // const ob = {
+        //   //inputタグ,id=search_boxを取得
+        //   SearchOfFood: $("#search_box").val(),
+        //   //inputタグ,id=name_boxを取得
+        //   NameOfFood: $("#name_box").val(),
+        //   //inputタグ,id=cal_boxを取得
+        //   Calorie: $("#cal_box").val(),
+        //   //inputタグ,id=p_boxを取得
+        //   Protein: $("#p_box").val(),
+        //   //inputタグ,id=f_boxを取得
+        //   Fat: $("#f_box").val(),
+        //   //inputタグ,id=c_boxを取得
+        //   Carbo: $("#c_box").val(),
+        // };
 
         //コレクション「FoodList」内のドキュメント「NameOfFood」をセット
         setDoc(doc(db, "FoodList", search_box.value), ob);
@@ -235,10 +243,11 @@
       async function GetDocument() {
         //firestore内のSearchOfFoodを取得
         const docsnap = await getDoc(doc(db, "FoodList", search_box.value));
+        console.log(docsnap);
         //↑何回も書いて覚える
         if (docsnap.exists()) {
           //firestoreにsearch_boxにデータが存在するとき
-          $('#search').show();
+          $("#search").show();
           //name_boxにfirestoreのNameOfFoodを表示
           $("#name_box").val(docsnap.data().NameOfFood);
           //cal_boxにfirestoreのCalorieを表示
@@ -262,11 +271,12 @@
       //section1
       async function AddDocument() {
         //firestore内のRollNoを取得
-        const docsnap = await getDoc(doc(db, "FoodList", search_box.value));
+        const docsnap = await getDoc(doc(db, "Food"));
+        console.log(docsnap);
         //↑何回も書いて覚える
         if (docsnap.exists()) {
           // firestoreにsearch_boxにデータが存在するとき
-          $('#show1').show();
+          $("#show1").show();
           // name1にfirestoreのNameOfFoodを表示;
           $("#name1").val(docsnap.data().NameOfFood);
           console.log(docsnap);
@@ -293,7 +303,7 @@
         //↑何回も書いて覚える
         if (docsnap.exists()) {
           // firestoreにsearch_boxにデータが存在するとき;
-          $()
+          $();
           // name1にfirestoreのNameOfFoodを表示;
           $("#name2").val(docsnap.data().NameOfFood);
           console.log(docsnap);
@@ -312,9 +322,6 @@
       }
       //ボタンを押してイベント発生
       addbtn_2.addEventListener("click", AddDocument2);
-
-
-
 
       //section3
       async function AddDocument3() {
@@ -341,14 +348,6 @@
       }
       //ボタンを押してイベント発生
       addbtn_3.addEventListener("click", AddDocument3);
-
-
-
-
-
-
-
-
 
       ///////////////////////UPDATE////////////////
       //updbtnを押す→イベント発生
@@ -396,6 +395,60 @@
       }
       delbtn.addEventListener("click", DeleteDocument);
       /////////////////////////////////////////////////////////////
+
+      //firestore内のRollNoを取得
+      // $("#food").on("click", function () {
+      //   const docsnap = getDoc(doc(db, "FoodHistory"));
+      //   console.log(docsnap);
+      // });
+
+      // async function GetFood() {
+      //   //firestore内のSearchOfFoodを取得
+      //   const docRef = doc(db, "FoodHistory");
+      //   const docSnap = await getDoc(docRef);
+      //   if (docSnap.exists()) {
+      //     console.log("Document data:", docSnap.data());
+      //   } else {
+      //     // doc.data() will be undefined in this case
+      //     console.log("No such document!");
+      //   }
+      // }
+      // //ボタンを押してイベント発生
+      // food.addEventListener("click", GetFood);
+
+      // onSnapshot(collection(db, "meal_history"), (querySnapshot) => {
+      //   // console.log(querySnapshot.docs);
+
+      //   const dataArray = [];
+      //   querySnapshot.docs.forEach(function (doc) {
+      //     const data = {
+      //       id: doc.id,
+      //       data: doc.data(),
+      //     };
+      //     dataArray.push(data);
+      //   });
+      //   $("#output").val(dataArray);
+      //   console.log(dataArray);
+      // });
+
+      $("#send").on("click", function () {
+        // 送信時に必要な処理
+        const data = {
+          breakfast: {
+            0: {
+              name: $("#name").val(),
+              kcal: $("#kcal").val(),
+              amount: $("#amount").val(),
+            },
+          },
+          dateTime: $('#date').val(),
+        };
+        console.log(data);
+        addDoc(collection(db, "meal_history"), data);
+      });
+      // function FoodHistory() {
+
+      // }
     </script>
   </body>
 </html>

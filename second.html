@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <main>
+      <section>
+        <div class="man">
+          <h2>man</h2>
+          <p>身長(cm): <input type="number" id="height" /></p>
+          <p>体重(kg): <input type="number" id="weight" /></p>
+          <p>年齢(歳): <input type="number" id="age" /></p>
+          <p>
+            活動レベル:
+            <select name="" id="select_m"></select>
+          </p>
+          <p><input type="button" value="計算" id="calc_m" /></p>
+          <p>1日の摂取カロリー</p>
+          <p id="result_m"></p>
+        </div>
+        <div class="woman">
+          <h2>woman</h2>
+          <p>身長(cm): <input type="number" id="height" /></p>
+          <p>体重(kg): <input type="number" id="weight" /></p>
+          <p>年齢(歳): <input type="number" id="age" /></p>
+          <p>
+            活動レベル:
+            <select name="" id="select_w"></select>
+          </p>
+          <p><input type="button" value="計算" id="calc_w" /></p>
+          <p>1日の摂取カロリー</p>
+          <p id="result_w"></p>
+        </div>
+      </section>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script>
+        ///////// 選択タブ（活動レベル）///////////
+      const mix = {
+        text: [
+          "ほぼ運動しない.通勤・デスクワーク程度",
+          "軽い運動.週に1〜2回程度の運動",
+          "中程度の運動.週に3〜5回程度の運動",
+          "激しい運動.週に6〜7回程度の運動",
+          "非常に激しい運動.1日に2回程度の運動",
+        ],
+        number: [1.2, 1.375, 1.55, 1.725, 1.9],
+      };
+      // optionタグの生成
+      const start = 0;
+      const end = 4;
+      let option = "";
+      for (let i = start; i <= end; i++) {
+        option += "<option>" + mix.text[i] + "</option>";
+      }
+      $("#select_m").html(option);
+      $("#select_w").html(option);
+
+      ///////////計算（男性）///////////
+      $("#calc_m").on("click", function () {
+        let h = Number($("#height").val());
+        let w = Number($("#weight").val());
+        let a = Number($("#age").val());
+        if ($("#select_m").val() === mix.text[0]) {
+          $("#result_m").html(
+            ((66 + 13.7 * w + 5 * h - 6.8 * a) * mix.number[0]).toFixed() +
+              "cal"
+          );
+        } else if ($("#select_m").val() === mix.text[1]) {
+          $("#result_m").html(
+            ((66 + 13.7 * w + 5 * h - 6.8 * a) * mix.number[1]).toFixed() +
+              "cal"
+          );
+        } else if ($("#select_m").val() === mix.text[2]) {
+          $("#result_m").html(
+            ((66 + 13.7 * w + 5 * h - 6.8 * a) * mix.number[2]).toFixed() +
+              "cal"
+          );
+        } else if ($("#select_m").val() === mix.text[3]) {
+          $("#result_m").html(
+            ((66 + 13.7 * w + 5 * h - 6.8 * a) * mix.number[3]).toFixed() +
+              "cal"
+          );
+        } else {
+          $("#result_m").html(
+            ((66 + 13.7 * w + 5 * h - 6.8 * a) * mix.number[4]).toFixed() +
+              "cal"
+          );
+        }
+      });
+
+      //////////// 計算（女性）////////////
+      $("#calc_w").on("click", function () {
+        let h = Number($("#height").val());
+        let w = Number($("#weight").val());
+        let a = Number($("#age").val());
+        if ($("#select_w").val() === mix.text[0]) {
+          $("#result_w").html(
+            ((665 + 9.6 * w + 1.7 * h - 7 * a) * mix.number[0]).toFixed() +
+              "cal"
+          );
+        } else if ($("#select_w").val() === mix.text[1]) {
+          $("#result_w").html(
+            ((665 + 9.6 * w + 1.7 * h - 7 * a) * mix.number[1]).toFixed() +
+              "cal"
+          );
+        } else if ($("#select_w").val() === mix.text[2]) {
+          $("#result_w").html(
+            ((665 + 9.6 * w + 1.7 * h - 7 * a) * mix.number[2]).toFixed() +
+              "cal"
+          );
+        } else if ($("#select_w").val() === mix.text[3]) {
+          $("#result_w").html(
+            ((665 + 9.6 * w + 1.7 * h - 7 * a) * mix.number[3]).toFixed() +
+              "cal"
+          );
+        } else {
+          $("#result_w").html(
+            ((665 + 9.6 * w + 1.7 * h - 7 * a) * mix.number[4]).toFixed() +
+              "cal"
+          );
+        }
+      });
+      </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+    

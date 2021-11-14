@@ -106,14 +106,8 @@
         .then((userCredential) => {
     //アラート表示
         alert("created");
-    // //変数userにuser情報取得
-    //     const user = userCredential.user;
-    // //変数uidにuidを代入
-    //     const uid = user.uid;
-    // //ユーザープロフィール設定
-    // updateProfile(auth.currentUser, {
-    //           displayName: name,
-    //         });
+        //トップページへ遷移
+            location.href = "./second.html";
           })
           .catch((error) => {
             const errorCode = error.code;
@@ -141,7 +135,7 @@
       //アラート表示
           alert("logged in");
       //トップページへ遷移
-            location.href = "./aaa.html";
+            location.href = "./index.html";
           })
       //ログイン失敗したら
           .catch((error) => {

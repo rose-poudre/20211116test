@@ -17,6 +17,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
+
 $(window).on("load", function () {
   const url = new URL(window.location.href);
   const params = url.searchParams;
