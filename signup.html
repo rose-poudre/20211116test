@@ -6,17 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title></title>
     <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/main.css" />
     <link rel="stylesheet" href="./css/signup.css" />
   </head>
   <body>
 
-
     <!-- トップ画面 -->
-    <div class="main-wrapper">
+    <div class="main-wrapper full">
       <div class="container">
-        <h1>30日間健康管理チャレンジ</h1>
-        <p><a href="#open01"><button type="button" >新規登録</button></a></p>
-        <p><a href="#open02"><button type="button" >ログイン</button></a></p>
+        <div>
+        <h1>
+          30日間<br>
+          健康管理チャレンジ
+        </h1>
+        </div>
+        <div clss="sighnup-btn">
+          <div>
+            <a href="#open01"><button type="button" class="signup-btn" >新規登録</button></a>
+          </div>
+          <div>
+            <a href="#open02"><button type="button" class="signup-btn" >ログイン</button></a>
+        </div>
+      </div>
     <!-- トップ画面終了 -->
 
     <!-- モーダルページ -->
@@ -26,14 +37,16 @@
           <a href="#" class="close_overlay"></a>
           <div id="modal_window">
             <h2>アカウント登録</h2>
-            <p>ユーザー名</p>
-            <input type="text" id="new_name" />
-            <p>メールアドレス</p>
-            <input type="email" id="new_email" />
-            <p>パスワード</p>
-            <input type="password" id="new_password" /><br>
-            <a href="#">【×】CLOSE</a><br>
+            <p class="new-title">ユーザー名</p>
+            <input type="text" id="new_name" class="new-frame" />
+            <p class="new-title">メールアドレス</p>
+            <input type="email" id="new_email" class="new-frame" />
+            <p class="new-title">パスワード</p>
+            <input type="password" id="new_password" class="new-frame" /><br>
             <button id="signup">Sign up</button>
+            <div class="close-btn">
+              <a href="#" class="batsu-btn">×</a>
+            </div>
           </div>
         </div>
 
@@ -42,12 +55,15 @@
           <a href="#" class="close_overlay"></a>
           <div id="modal_window">
             <h2>Login</h2>
-            <p>メールアドレス</p>
-            <input type="email" id="login_email" />
-            <p>パスワード</p>
-            <input type="password" id="login_password" /><br>
-            <a href="#">【×】CLOSE</a><br>
+            <p class="new-title">メールアドレス</p>
+            <input type="email" id="login_email" class="new-frame" />
+            <p class="new-title">パスワード</p>
+            <input type="password" id="login_password" class="new-frame" /><br>
             <button id="login">ログイン</button>
+            <div class="forgot-pw">※パスワードを忘れた方は >><a href="#"> こちら</a></div>
+            <div class="close-btn">
+              <a href="#" class="batsu-btn">×</a>
+            </div>
           </div>
         </div>
     </div>
