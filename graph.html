@@ -4,8 +4,31 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'"
+    />
+    <script src="components/loader.js"></script>
+    <script src="lib/onsenui/js/onsenui.min.js"></script>
+
+    <link rel="stylesheet" href="components/loader.css" />
+    <link rel="stylesheet" href="lib/onsenui/css/onsenui.css" />
+    <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/graph.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=MuseoModerno&display=swap"
+    />
 
     <title>健康管理アプリ</title>
+
+</head>
+
+
+
+
+
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -25,7 +48,21 @@
       <!--/.top-wrapper-->
 
       <div class="main-wrapper">
-        <div class="container text-center"></div>
+        <div class="container text-center">
+         
+
+
+
+          <h1>体重の変化</h1>
+
+          <div class="box">
+          <canvas id="chart01"></canvas>
+          <!--/box--></div>
+            
+            
+          
+
+        </div>
         <!--/.container-->
       </div>
 
@@ -53,13 +90,24 @@
     </div>
     <!--/.wrapper-->
 
-    <script
+    <!-- <script
       src="https://code.jquery.com/jquery-3.4.1.min.js"
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
       crossorigin="anonymous"
     ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/protonet-jquery.inview/1.1.2/jquery.inview.min.js"></script>
-    <script src="js/toppage.js"></script>
+    <script src="js/toppage.js"></script> -->
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="  crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/protonet-jquery.inview/1.1.2/jquery.inview.min.js"></script>
+    <script src="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/9-5-4/js/9-5-4.js"></script>
+
+
+
+
+
+
   </body>
 </html>

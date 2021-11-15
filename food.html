@@ -39,15 +39,15 @@
         />g<br /><br />
       </div>
       <hr />
-      <button id="addbtn_1">追加</button>
+      <!-- <button id="addbtn_1">追加</button>
       <button id="addbtn_2">追加</button>
-      <button id="addbtn_3">追加</button>
+      <button id="addbtn_3">追加</button> -->
       <button id="send">送信</button>
       <hr />
-      <input type="text" id="date">
-      <input type="text" id="name" />
-      <input type="text" id="kcal" />
-      <input type="text" id="amount" />
+      <input type="text" id="date" placeholder="date" />
+      <input type="text" id="name" placeholder="name" />
+      <input type="text" id="kcal" placeholder="kcal" />
+      <input type="text" id="amount" placeholder="amount" />
 
       <!-- 追加ボタン押した内容表示 -->
       <div id="show1" style="display: none">
@@ -115,8 +115,8 @@
       <button id="updbtn">UPDATE</button>
       <button id="delbtn">DELETE</button>
 
-      <button id="food">food</button>
-      <input type="text" id="output" />
+      <!-- <button id="food">food</button> -->
+      <!-- <input type="text" id="output" /> -->
     </div>
     <!-- コンテンツ表示内容 -->
 
@@ -171,12 +171,12 @@
 
       //APIkey 自分のプロダクトを特定するためのコード
       const firebaseConfig = {
-        apiKey: "AIzaSyCjJjAbvkARxiEdRgxXopqIOmkWOxaFOXs",
-        authDomain: "work-js.firebaseapp.com",
-        projectId: "work-js",
-        storageBucket: "work-js.appspot.com",
-        messagingSenderId: "649608969811",
-        appId: "1:649608969811:web:29e1bb2d8ca0c646d810a6",
+        apiKey: "AIzaSyCUy1E0IFrIsByIZnmjFiRvSUOu96tsaAQ",
+        authDomain: "health-check-fd5a1.firebaseapp.com",
+        projectId: "health-check-fd5a1",
+        storageBucket: "health-check-fd5a1.appspot.com",
+        messagingSenderId: "1065531527870",
+        appId: "1:1065531527870:web:48572790a6b3940ddb84ef",
       };
 
       //Firebaseを利用するための変数
@@ -206,20 +206,20 @@
 
       //INSERTボタンを押すとイベント発生
       $("#insbtn").on("click", function () {
-        // const ob = {
-        //   //inputタグ,id=search_boxを取得
-        //   SearchOfFood: $("#search_box").val(),
-        //   //inputタグ,id=name_boxを取得
-        //   NameOfFood: $("#name_box").val(),
-        //   //inputタグ,id=cal_boxを取得
-        //   Calorie: $("#cal_box").val(),
-        //   //inputタグ,id=p_boxを取得
-        //   Protein: $("#p_box").val(),
-        //   //inputタグ,id=f_boxを取得
-        //   Fat: $("#f_box").val(),
-        //   //inputタグ,id=c_boxを取得
-        //   Carbo: $("#c_box").val(),
-        // };
+        const ob = {
+          //inputタグ,id=search_boxを取得
+          SearchOfFood: $("#search_box").val(),
+          //inputタグ,id=name_boxを取得
+          NameOfFood: $("#name_box").val(),
+          //inputタグ,id=cal_boxを取得
+          Calorie: $("#cal_box").val(),
+          //inputタグ,id=p_boxを取得
+          Protein: $("#p_box").val(),
+          //inputタグ,id=f_boxを取得
+          Fat: $("#f_box").val(),
+          //inputタグ,id=c_boxを取得
+          Carbo: $("#c_box").val(),
+        };
 
         //コレクション「FoodList」内のドキュメント「NameOfFood」をセット
         setDoc(doc(db, "FoodList", search_box.value), ob);
@@ -269,85 +269,85 @@
 
       // addボタンを押す→SearchOfFoodからfirestore上のデータを出力
       //section1
-      async function AddDocument() {
-        //firestore内のRollNoを取得
-        const docsnap = await getDoc(doc(db, "Food"));
-        console.log(docsnap);
-        //↑何回も書いて覚える
-        if (docsnap.exists()) {
-          // firestoreにsearch_boxにデータが存在するとき
-          $("#show1").show();
-          // name1にfirestoreのNameOfFoodを表示;
-          $("#name1").val(docsnap.data().NameOfFood);
-          console.log(docsnap);
-          //cal1にfirestoreのCalorieを表示
-          $("#cal1").val(docsnap.data().Calorie);
-          //p1にfirestoreのProteinを表示
-          $("#p1").val(docsnap.data().Protein);
-          //f1にfirestoreのFatを表示
-          $("#f1").val(docsnap.data().Fat);
-          //c1にfirestoreのCarboを表示
-          $("#c1").val(docsnap.data().Calorie);
-        } else {
-          //ない時→アラート発生
-          alert("No such Document....");
-        }
-      }
-      //ボタンを押してイベント発生
-      addbtn_1.addEventListener("click", AddDocument);
+      // async function AddDocument() {
+      //   //firestore内のRollNoを取得
+      //   const docsnap = await getDoc(doc(db, "Food"));
+      //   console.log(docsnap);
+      //   //↑何回も書いて覚える
+      //   if (docsnap.exists()) {
+      //     // firestoreにsearch_boxにデータが存在するとき
+      //     $("#show1").show();
+      //     // name1にfirestoreのNameOfFoodを表示;
+      //     $("#name1").val(docsnap.data().NameOfFood);
+      //     console.log(docsnap);
+      //     //cal1にfirestoreのCalorieを表示
+      //     $("#cal1").val(docsnap.data().Calorie);
+      //     //p1にfirestoreのProteinを表示
+      //     $("#p1").val(docsnap.data().Protein);
+      //     //f1にfirestoreのFatを表示
+      //     $("#f1").val(docsnap.data().Fat);
+      //     //c1にfirestoreのCarboを表示
+      //     $("#c1").val(docsnap.data().Calorie);
+      //   } else {
+      //     //ない時→アラート発生
+      //     alert("No such Document....");
+      //   }
+      // }
+      // //ボタンを押してイベント発生
+      // addbtn_1.addEventListener("click", AddDocument);
 
       //section2
-      async function AddDocument2() {
-        //firestore内のSearchOfFoodを取得
-        const docsnap = await getDoc(doc(db, "FoodList", search_box.value));
-        //↑何回も書いて覚える
-        if (docsnap.exists()) {
-          // firestoreにsearch_boxにデータが存在するとき;
-          $();
-          // name1にfirestoreのNameOfFoodを表示;
-          $("#name2").val(docsnap.data().NameOfFood);
-          console.log(docsnap);
-          //cal1にfirestoreのCalorieを表示
-          $("#cal2").val(docsnap.data().Calorie);
-          //p1にfirestoreのProteinを表示
-          $("#p2").val(docsnap.data().Protein);
-          //f1にfirestoreのFatを表示
-          $("#f2").val(docsnap.data().Fat);
-          //c1にfirestoreのCarboを表示
-          $("#c2").val(docsnap.data().Calorie);
-        } else {
-          //ない時→アラート発生
-          alert("No such Document....");
-        }
-      }
-      //ボタンを押してイベント発生
-      addbtn_2.addEventListener("click", AddDocument2);
+      // async function AddDocument2() {
+      //   //firestore内のSearchOfFoodを取得
+      //   const docsnap = await getDoc(doc(db, "FoodList", search_box.value));
+      //   //↑何回も書いて覚える
+      //   if (docsnap.exists()) {
+      //     // firestoreにsearch_boxにデータが存在するとき;
+      //     $();
+      //     // name1にfirestoreのNameOfFoodを表示;
+      //     $("#name2").val(docsnap.data().NameOfFood);
+      //     console.log(docsnap);
+      //     //cal1にfirestoreのCalorieを表示
+      //     $("#cal2").val(docsnap.data().Calorie);
+      //     //p1にfirestoreのProteinを表示
+      //     $("#p2").val(docsnap.data().Protein);
+      //     //f1にfirestoreのFatを表示
+      //     $("#f2").val(docsnap.data().Fat);
+      //     //c1にfirestoreのCarboを表示
+      //     $("#c2").val(docsnap.data().Calorie);
+      //   } else {
+      //     //ない時→アラート発生
+      //     alert("No such Document....");
+      //   }
+      // }
+      // //ボタンを押してイベント発生
+      // addbtn_2.addEventListener("click", AddDocument2);
 
       //section3
-      async function AddDocument3() {
-        //firestore内のSearchOfFoodを取得
-        const docsnap = await getDoc(doc(db, "FoodList", search_box.value));
-        //↑何回も書いて覚える
-        if (docsnap.exists()) {
-          // firestoreにsearch_boxにデータが存在するとき;
-          // name1にfirestoreのNameOfFoodを表示;
-          $("#name3").val(docsnap.data().NameOfFood);
-          console.log(docsnap);
-          //cal1にfirestoreのCalorieを表示
-          $("#cal3").val(docsnap.data().Calorie);
-          //p1にfirestoreのProteinを表示
-          $("#p3").val(docsnap.data().Protein);
-          //f1にfirestoreのFatを表示
-          $("#f3").val(docsnap.data().Fat);
-          //c1にfirestoreのCarboを表示
-          $("#c3").val(docsnap.data().Calorie);
-        } else {
-          //ない時→アラート発生
-          alert("No such Document....");
-        }
-      }
-      //ボタンを押してイベント発生
-      addbtn_3.addEventListener("click", AddDocument3);
+      // async function AddDocument3() {
+      //   //firestore内のSearchOfFoodを取得
+      //   const docsnap = await getDoc(doc(db, "FoodList", search_box.value));
+      //   //↑何回も書いて覚える
+      //   if (docsnap.exists()) {
+      //     // firestoreにsearch_boxにデータが存在するとき;
+      //     // name1にfirestoreのNameOfFoodを表示;
+      //     $("#name3").val(docsnap.data().NameOfFood);
+      //     console.log(docsnap);
+      //     //cal1にfirestoreのCalorieを表示
+      //     $("#cal3").val(docsnap.data().Calorie);
+      //     //p1にfirestoreのProteinを表示
+      //     $("#p3").val(docsnap.data().Protein);
+      //     //f1にfirestoreのFatを表示
+      //     $("#f3").val(docsnap.data().Fat);
+      //     //c1にfirestoreのCarboを表示
+      //     $("#c3").val(docsnap.data().Calorie);
+      //   } else {
+      //     //ない時→アラート発生
+      //     alert("No such Document....");
+      //   }
+      // }
+      // //ボタンを押してイベント発生
+      // addbtn_3.addEventListener("click", AddDocument3);
 
       ///////////////////////UPDATE////////////////
       //updbtnを押す→イベント発生
@@ -441,7 +441,7 @@
               amount: $("#amount").val(),
             },
           },
-          dateTime: $('#date').val(),
+          dateTime: $("#date").val(),
         };
         console.log(data);
         addDoc(collection(db, "meal_history"), data);
